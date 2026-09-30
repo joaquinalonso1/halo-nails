@@ -1,11 +1,13 @@
 /* --- CONFIGURACIÓN GENERAL --- */
-/* Restauramos el fondo clarito para el resto de la web */
+html {
+    background-color: #111; /* Este es el color oscuro del pie de página. Si usaste otro, poné el tuyo (ej: black) */
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa; /* Mantenemos el fondo clarito para el resto de la web */
 }
-
 /* --- ENCABEZADO --- */
 /* Le aplicamos la foto de las historias SÓLO al encabezado */
 .encabezado {
