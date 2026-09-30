@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALO NAILS</title>
+    <!-- Importamos la letra cursiva de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <!-- Creamos un marco para recortar la foto -->
+        <div class="contenedor-logo">
+            <img src="imagenes/logo.jpg" alt="Logo de Halo Nails" class="logo">
+        </div>
+        <h1 class="titulo-local">Halo Nails</h1>
+    </header>
+
+
+<!-- SECCIÓN DE SERVICIOS -->
+    <main class="contenedor-servicios">
+        <!-- CAMPO DE NOMBRE GLOBAL -->
+        <div class="caja-nombre">
+            <label for="nombre-cliente">Ingresá tu nombre para el turno:</label>
+            <input type="text" id="nombre-cliente" placeholder="Ej: Camila" autocomplete="off">
+        </div>
+        <!-- Tarjeta 1: Esmaltado -->
+        <div class="tarjeta" onclick="toggleTarjeta(this)">
+            <img src="imagenes/esmaltado.jpg" alt="Esmaltado Semipermanente">
+            <div class="info-tarjeta">
+                <h2>Esmaltado Semipermanente</h2>
+                <div class="contenido-oculto" onclick="event.stopPropagation()">
+                    <p>Es una técnica de esmaltado que dura más que un esmalte común. Es ideal para uñas sanas y fuertes, ya que no las refuerza, solo aporta color y brillo duradero. Si tus uñas son muy débiles o se quiebran fácilmente, es mejor optar por un refuerzo como el capping. Se recomienda renovarlo cada 2 semanas.</p>
+                    <div class="opciones-precio">
+                        <label><input type="radio" name="servicio_global" value="Esmaltado Semipermanente: Color Liso - $14.500" onclick="desmarcarRadio(this)"> Color Liso - $14.500</label>
+                        <label><input type="radio" name="servicio_global" value="Esmaltado Semipermanente: Con Diseño - $16.000" onclick="desmarcarRadio(this)"> Con Diseño - $16.000</label>
+                    </div>
+                    <button class="btn-whatsapp" onclick="pedirTurno(event)">¡Pedí tu turno!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2: Capping -->
+        <div class="tarjeta" onclick="toggleTarjeta(this)">
+            <img src="imagenes/capping.jpg" alt="Capping Gel">
+            <div class="info-tarjeta">
+                <h2>Capping Gel</h2>
+                <div class="contenido-oculto" onclick="event.stopPropagation()">
+                    <p>El capping es una capa de gel que fortalece la uña natural, evitando que se quiebre o descame. Es ideal para uñas débiles o frágiles, ya que las protege sin agregar largo. Se recomienda renovarlo cada 3 semanas.</p>
+                    <div class="opciones-precio">
+                        <label><input type="radio" name="servicio_global" value="Capping Gel: Color Liso - $19.000" onclick="desmarcarRadio(this)"> Color Liso - $19.000</label>
+                        <label><input type="radio" name="servicio_global" value="Capping Gel: Con Diseño - $21.000" onclick="desmarcarRadio(this)"> Con Diseño - $21.000</label>
+                    </div>
+                    <button class="btn-whatsapp" onclick="pedirTurno(event)">¡Pedí tu turno!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3: Soft Gel -->
+        <div class="tarjeta" onclick="toggleTarjeta(this)">
+            <img src="imagenes/softgel.jpg" alt="Soft Gel">
+            <div class="info-tarjeta">
+                <h2>Soft Gel</h2>
+                <div class="contenido-oculto" onclick="event.stopPropagation()">
+                    <p>El soft gel es una técnica de extensiones que aporta largo y resistencia sin dañar la uña natural. Su durabilidad es de 3 a 4 semanas, dependiendo del crecimiento de la uña.</p>
+                    <div class="opciones-precio">
+                        <label><input type="radio" name="servicio_global" value="Soft Gel: Color Liso - $20.000" onclick="desmarcarRadio(this)"> Color Liso - $20.000</label>
+                        <label><input type="radio" name="servicio_global" value="Soft Gel: Con Diseño - $22.000" onclick="desmarcarRadio(this)"> Con Diseño - $22.000</label>
+                    </div>
+                    <button class="btn-whatsapp" onclick="pedirTurno(event)">¡Pedí tu turno!</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+<!-- SECCIÓN DE RETIRO DE ESMALTE -->
+    <section class="seccion-retiro">
+        <div class="tarjeta-retiro" onclick="toggleTarjeta(this)">
+            
+            <div class="retiro-visible">
+                <div>
+                    <div class="etiqueta-retiro">OPCIONAL</div>
+                    <h2 class="titulo-retiro">Retiro de Servicio</h2>
+                </div>
+                <div class="flecha">▼</div>
+            </div>
+            
+            <div class="contenido-oculto" onclick="event.stopPropagation()">
+                <div class="opciones-precio" style="margin-top: 20px;">
+                    
+                    <label>
+                        <input type="radio" name="servicio_global" value="Solo Retiro - $6.000" onclick="desmarcarRadio(this)"> 
+                        Solo Retiro - $6.000
+                    </label>
+
+                    <label>
+                        <input type="radio" name="servicio_global" id="radio-retiro-nuevo" value="retiro_plus" onclick="desmarcarRadio(this)"> 
+                        Retiro + Servicio Nuevo - $3.000
+                    </label>
+
+                    <!-- EL SUBMENÚ OCULTO -->
+                    <div id="submenu-nuevo" class="submenu-oculto">
+                        <p class="texto-submenu">¿Qué servicio nuevo querés sumar?</p>
+                        <label><input type="radio" name="sub_servicio" value="Esmaltado Semipermanente"> Esmaltado Semipermanente</label>
+                        <label><input type="radio" name="sub_servicio" value="Capping Gel"> Capping Gel</label>
+                        <label><input type="radio" name="sub_servicio" value="Soft Gel"> Soft Gel</label>
+                    </div>
+
+                </div>
+                <button class="btn-whatsapp" onclick="pedirTurno(event)">¡Pedí tu turno!</button>
+            </div>
+        </div> <!-- ESTOS ERAN LOS CIERRES QUE FALTABAN -->
+    </section>
+
+    <!-- SECCIÓN DE UBICACIÓN -->
+    <section class="seccion-ubicacion">
+        <div class="tarjeta-ubicacion">
+            <div class="etiqueta-ubicacion">UBICACIÓN</div>
+            <h2 class="titulo-llegar">Cómo llegar</h2>
+            <a href="https://maps.app.goo.gl/5e9JsS8M1BPzSnqP6" target="_blank" class="btn-mapa">📍 Abrir en Google Maps</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="seccion-faq">
+        <h2 class="titulo-faq">Preguntas Frecuentes</h2>
+        
+        <!-- Pregunta 1 -->
+        <div class="tarjeta-faq" onclick="toggleFaq(this)">
+            <div class="faq-visible">
+                <h3>¿Con cuánta anticipación debo cancelar?</h3>
+                <span class="icono-faq">+</span>
+            </div>
+            <div class="faq-oculto">
+                <p>Te pedimos que por favor avises con al menos 24 horas de anticipación. Así podemos reorganizar la agenda y cederle el turno a otra persona.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="tarjeta-faq" onclick="toggleFaq(this)">
+            <div class="faq-visible">
+                <h3>¿Tengo que ir con las uñas sin esmalte?</h3>
+                <span class="icono-faq">+</span>
+            </div>
+            <div class="faq-oculto">
+                <p>Si tenés esmalte común, te lo retiramos acá sin costo. Si tenés esmaltado semipermanente o esculpidas de otro salón, por favor agregá la opción de "Retiro de Esmalte" al pedir tu turno.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="tarjeta-faq" onclick="toggleFaq(this)">
+            <div class="faq-visible">
+                <h3>¿Cuánto dura el turno?</h3>
+                <span class="icono-faq">+</span>
+            </div>
+            <div class="faq-oculto">
+                <p>Depende del servicio. Un esmaltado semipermanente liso toma alrededor de 1 hora, mientras que un Soft Gel o Capping con diseño puede llevar entre 1:30 y 2 horas. ¡Venite con tiempo para relajarte!</p>
+            </div>
+        </div>
+    </section>
+
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/5493487308959?text=Hola,%20tengo%20una%20consulta!" class="btn-flotante" target="_blank" title="Consultas por WhatsApp">
+        <!-- Este código raro es un SVG: dibuja el ícono oficial de WhatsApp automáticamente -->
+        <svg viewBox="0 0 32 32" class="icono-wa">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.488 2.050 7.825l-2.050 8.175 8.412-2.162c2.313 1.188 4.9 1.862 7.588 1.862 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.4 0-4.662-0.625-6.662-1.725l-0.475-0.275-4.962 1.275 1.325-4.788-0.312-0.512c-1.225-2.050-1.875-4.425-1.875-6.975 0-7.375 6-13.375 13.375-13.375s13.375 6 13.375 13.375-6 13.375-13.375 13.375zM21.962 20.35c-0.325-0.162-1.925-0.95-2.225-1.062-0.3-0.112-0.525-0.162-0.75 0.162s-0.85 1.062-1.038 1.275c-0.187 0.212-0.375 0.237-0.7 0.075-0.325-0.162-1.375-0.512-2.612-1.625-0.962-0.862-1.612-1.938-1.8-2.262-0.187-0.325-0.025-0.5 0.137-0.662 0.15-0.15 0.325-0.375 0.487-0.575 0.162-0.2 0.212-0.325 0.325-0.55 0.112-0.225 0.050-0.425-0.025-0.587-0.075-0.162-0.75-1.812-1.025-2.475-0.262-0.65-0.537-0.562-0.75-0.575-0.2-0.012-0.425-0.012-0.65-0.012s-0.587 0.087-0.887 0.412c-0.3 0.325-1.15 1.125-1.15 2.75s1.175 3.187 1.337 3.4c0.162 0.212 2.313 3.537 5.6 4.962 0.787 0.337 1.4 0.55 1.887 0.7 0.787 0.25 1.5 0.212 2.062 0.125 0.637-0.087 1.925-0.787 2.2-1.55 0.262-0.75 0.262-1.4 0.187-1.55-0.075-0.137-0.287-0.212-0.612-0.375z" fill="#FFFFFF"></path>
+        </svg>
+    </a>
+
+
+
+
+    <!-- EL MOTOR DEL ACORDEÓN Y VALIDACIÓN (JavaScript) -->
+ <script>
+        function toggleTarjeta(elemento) {
+            elemento.classList.toggle("expandida");
+        }
+
+
+        // Función específica para abrir/cerrar las FAQ
+        function toggleFaq(elemento) {
+            // Cierra todas las otras FAQ abiertas si querés que solo haya una abierta a la vez
+            const todasLasFaq = document.querySelectorAll('.tarjeta-faq');
+            todasLasFaq.forEach(faq => {
+                if (faq !== elemento) {
+                    faq.classList.remove('abierta');
+                }
+            });
+            
+            // Abre o cierra la que tocaste
+            elemento.classList.toggle('abierta');
+        }
+
+        let ultimoRadioSeleccionado = null;
+
+        function desmarcarRadio(radio) {
+            if (ultimoRadioSeleccionado === radio) {
+                radio.checked = false;
+                ultimoRadioSeleccionado = null;
+            } else {
+                ultimoRadioSeleccionado = radio;
+            }
+
+            const submenu = document.getElementById('submenu-nuevo');
+            if (ultimoRadioSeleccionado && ultimoRadioSeleccionado.id === 'radio-retiro-nuevo') {
+                submenu.style.display = 'flex';
+            } else {
+                submenu.style.display = 'none';
+                const subOpciones = document.getElementsByName('sub_servicio');
+                for(let op of subOpciones) op.checked = false; 
+            }
+        }
+
+        function pedirTurno(evento) {
+            evento.stopPropagation(); 
+
+            // 1. CAPTURAMOS EL NOMBRE
+            const inputNombre = document.getElementById('nombre-cliente').value.trim();
+            if (!inputNombre) {
+                alert("⚠️ Por favor, ingresá tu nombre arriba de todo antes de pedir el turno.");
+                // Hacemos scroll suave automático hacia el cuadro del nombre
+                document.getElementById('nombre-cliente').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            const opciones = document.getElementsByName('servicio_global');
+            let seleccion = null;
+            let esRetiroMasNuevo = false;
+
+            for (let op of opciones) {
+                if (op.checked) {
+                    if (op.id === 'radio-retiro-nuevo') {
+                        esRetiroMasNuevo = true;
+                    } else {
+                        seleccion = op.value;
+                    }
+                    break;
+                }
+            }
+
+            if (esRetiroMasNuevo) {
+                const subOpciones = document.getElementsByName('sub_servicio');
+                let subSeleccion = null;
+                for (let sub of subOpciones) {
+                    if (sub.checked) {
+                        subSeleccion = sub.value;
+                        break;
+                    }
+                }
+                
+                if (!subSeleccion) {
+                    alert("⚠️ Por favor, indicá qué servicio nuevo te vas a hacer después del retiro.");
+                    return;
+                }
+                seleccion = `Retiro + un servicio nuevo de ${subSeleccion} ($3.000 el retiro)`;
+            }
+
+            if (!seleccion) {
+                alert("⚠ Por favor, elegí una opción (Liso, Con diseño o Retiro) antes de pedir el turno.");
+                return;
+            }
+
+            // 2. ARMAMOS EL MENSAJE CON EL NOMBRE
+            const numero = "5493487308959"; 
+            const mensaje = `Hola, soy ${inputNombre}! Quiero pedir un turno para ${seleccion}.`;
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+
+<!-- PIE DE PÁGINA (Footer) -->
+    <footer class="pie-pagina">
+        <h3 class="titulo-footer">Nuestras Redes</h3>
+        <div class="enlaces-redes">
+            <!-- Acá ponés el link del Instagram de tu hermana -->
+            <a href="https://www.instagram.com/__halonails/" target="_blank">Instagram</a>
+            <a href="https://wa.me/5493487308959" target="_blank">WhatsApp</a>
+        </div>
+    </footer>
+
+
+</body>
+</html>

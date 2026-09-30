@@ -1,0 +1,511 @@
+/* --- CONFIGURACIÓN GENERAL --- */
+/* Restauramos el fondo clarito para el resto de la web */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; 
+}
+
+/* --- ENCABEZADO --- */
+/* Le aplicamos la foto de las historias SÓLO al encabezado */
+.encabezado {
+    background-image: url('imagenes/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 15px 20px; /* Volvemos al relleno para que respire */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* El marco blanco exterior */
+.contenedor-logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid white; /* Acá está el borde blanco puro */
+    overflow: hidden; /* ESTA ES LA CLAVE: Recorta todo lo que se salga del marco */
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* La foto por dentro con un poco de zoom */
+.logo {
+    width: 110%; /* El zoom que empuja el borde negro hacia afuera */
+    height: 110%;
+    object-fit: cover;
+    margin-left: -5%; /* Centra la foto después del zoom */
+    margin-top: -5%;
+}
+
+/* El título abajo del logo, manteniendo la letra cursiva */
+.titulo-local {
+    font-family: 'Great Vibes', cursive;
+    margin: 10px 0 0 0; /* Un margen pequeño arriba para separarlo del logo */
+    font-size: 55px; /* Mantenemos el tamaño grande para la cursiva */
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Sombra para que contraste con el fondo */
+}
+
+/* --- SECCIÓN DE SERVICIOS --- */
+.contenedor-servicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Esta línea evita que la tarjeta vecina se estire */
+    gap: 60px;
+    padding: 50px 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Diseño de cada tarjeta */
+.tarjeta {
+    background-color: white;
+    width: 290px;
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que la foto se salga de la tarjeta */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra suave */
+}
+
+/* Diseño de las fotos de las uñas */
+.tarjeta img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover; /* Clave: recorta la foto perfecto sin aplastarla */
+}
+
+/* Diseño del bloque de texto debajo de la foto */
+.info-tarjeta {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.info-tarjeta h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: 800; /* Letra un poco más fina y elegante */
+}
+
+/* --- EFECTO ACORDEÓN Y TEXTOS --- */
+/* Cambiamos el cursor a una manito para que se entienda que es clickeable */
+.tarjeta {
+    cursor: pointer;
+    transition: transform 0.2s; /* Pequeño efecto al pasar el mouse */
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.info-tarjeta p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5; /* Separa un poco los renglones para que se lea mejor */
+    text-align: left;
+}
+
+/* El contenedor arranca cerrado */
+.contenido-oculto {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out; /* Esta es la magia del deslizamiento suave */
+}
+
+/* Cuando Javascript le pone la clase "expandida", el contenedor se abre */
+/* Cuando Javascript le pone la clase "expandida", el contenedor se abre */
+.tarjeta.expandida .contenido-oculto,
+.tarjeta-retiro.expandida .contenido-oculto {
+    max-height: 600px; 
+    opacity: 1;
+    margin-top: 15px;
+}
+
+/* --- BOTÓN DE WHATSAPP --- */
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366; /* Verde oficial de WhatsApp */
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(37, 211, 102, 0.3);
+    transition: background-color 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Verde más oscuro cuando pasas el mouse */
+}
+
+
+/* --- SECCIÓN DE UBICACIÓN --- */
+.seccion-ubicacion {
+    padding: 20px; /* Le da aire a los costados para celulares */
+    margin-bottom: 50px; /* Separa la tarjeta del fondo de la página */
+    display: flex;
+    justify-content: center; /* Centra la tarjeta en la pantalla */
+}
+
+/* La caja blanca calcada a tu foto */
+.tarjeta-ubicacion {
+    background-color: white;
+    width: 100%;
+    max-width: 600px; /* Tamaño compacto, ni muy ancho ni muy angosto */
+    padding: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Misma sombra que los servicios */
+    text-align: left; /* Tira todo el texto hacia la izquierda */
+}
+
+/* El texto sutil de arriba */
+.etiqueta-ubicacion {
+    color: #888; /* Gris clásico, sin colores fuertes */
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+/* El título principal */
+.titulo-llegar {
+    font-size: 24px; /* Un poco más chico que antes para que sea delicado */
+    font-weight: 900;
+    color: #111;
+    margin: 0 0 20px 0;
+}
+
+/* El botón oscuro */
+.btn-mapa {
+    display: inline-block;
+    background-color: #111; /* Negro/Gris muy oscuro como en tu foto */
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px; /* Bordes apenas redondeados, más cuadrado */
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-mapa:hover {
+    background-color: #444; /* Se aclara al pasar el mouse */
+}
+
+
+
+/* --- CUADRO DE NOMBRE --- */
+.caja-nombre {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.caja-nombre label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.caja-nombre input {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.caja-nombre input:focus {
+    border-color: #f9004d; /* Se pinta de fucsia cuando escribís */
+}
+
+/* --- OPCIONES DE PRECIO (Diseño moderno) --- */
+.opciones-precio {
+    text-align: left;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+/* Escondemos el circulito feo por defecto */
+.opciones-precio input[type="radio"] {
+    display: none;
+}
+
+/* Transformamos el texto en un bloque estilo botón */
+.opciones-precio label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 14px 15px;
+    border-radius: 8px;
+    border: 2px solid transparent; /* Borde invisible preparado */
+    transition: all 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+.opciones-precio label:hover {
+    background-color: #e5e5e5;
+}
+
+/* EL EFECTO SELECCIONADO: Cuando el input oculto está marcado, pintamos el label que lo envuelve */
+.opciones-precio input[type="radio"]:checked + label,
+.opciones-precio label:has(input[type="radio"]:checked) {
+    background-color: #ffe6eb; /* Fondo fucsia muy clarito */
+    border: 2px solid #f9004d; /* Borde fucsia fuerte */
+    color: #f9004d; /* Texto fucsia */
+}
+.opciones-precio label {
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.opciones-precio label:hover {
+    background-color: #e5e5e5;
+}
+
+/* Transformamos el link de WhatsApp en un botón real sin borde */
+button.btn-whatsapp {
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    width: 100%; /* Hace que el botón ocupe todo el ancho de la tarjeta */
+    cursor: pointer;
+}
+
+/* --- PIE DE PÁGINA --- */
+.pie-pagina {
+    background-color: #111; /* Negro como en tu foto */
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.titulo-footer {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.enlaces-redes a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.enlaces-redes a:hover {
+    color: #f9004d; /* Se pintan del fucsia del logo al pasar el mouse */
+}
+
+
+
+/* --- SECCIÓN RETIRO DE ESMALTE --- */
+.seccion-retiro {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Lo separa de las tarjetas de arriba */
+}
+
+/* La caja blanca tipo "Ubicación" */
+.tarjeta-retiro {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.tarjeta-retiro:hover {
+    transform: translateY(-3px);
+}
+
+/* Acomoda el título a la izquierda y la flecha a la derecha */
+.retiro-visible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.etiqueta-retiro {
+    color: #888;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.titulo-retiro {
+    font-size: 24px;
+    font-weight: 900;
+    color: #111;
+    margin: 0;
+}
+
+.flecha {
+    font-size: 18px;
+    color: #f9004d; /* Fucsia del logo para que llame la atención */
+}
+
+/* --- SUBMENÚ DE RETIRO --- */
+.submenu-oculto {
+    display: none; /* Arranca invisible */
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 25px; /* Lo empuja a la derecha */
+    padding-left: 15px;
+    border-left: 3px solid #f9004d; /* Línea fucsia decorativa */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.texto-submenu {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+
+
+
+/* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+.btn-flotante {
+    position: fixed; /* Lo clava en la pantalla */
+    bottom: 25px; /* A 25px del borde inferior */
+    right: 25px; /* A 25px del borde derecho */
+    background-color: #25d366; /* Verde oficial de WhatsApp */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Lo hace un círculo perfecto */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra para que flote visualmente */
+    z-index: 1000; /* Asegura que siempre esté por encima de cualquier otra cosa (tarjetas, mapa, etc) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima */
+.btn-flotante:hover {
+    background-color: #128c7e; /* Verde más oscuro */
+    transform: scale(1.1); /* Se agranda un poquito (10%) */
+}
+
+/* Ajuste del tamaño del ícono adentro del botón */
+.icono-wa {
+    width: 35px;
+    height: 35px;
+}
+
+
+
+/* --- SECCIÓN FAQ --- */
+.seccion-faq {
+    max-width: 800px;
+    margin: 20px auto 50px auto;
+    padding: 0 20px;
+}
+
+.titulo-faq {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+.tarjeta-faq {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.tarjeta-faq:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.faq-visible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-visible h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.icono-faq {
+    font-size: 22px;
+    color: #f9004d; /* Fucsia del logo */
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* El texto oculto */
+.faq-oculto {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-oculto p {
+    margin: 15px 0 0 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Cuando se abre la tarjeta */
+.tarjeta-faq.abierta .faq-oculto {
+    max-height: 200px;
+    opacity: 1;
+}
+
+/* Gira el "+" para convertirlo en una "X" */
+.tarjeta-faq.abierta .icono-faq {
+    transform: rotate(45deg); 
+}
+
+
